@@ -13,9 +13,9 @@ Being a thread centric model, where each thread has a well defined task assignme
 
 OpenMP allows the use of directives which apply to the code block that follows. An example would be, 
 
->#pragma omp parallel {
+>```#pragma omp parallel {
   //code block to be executed in parallel
-}
+}```
 
 We can restrict the number of threads, the visibility of variables used and various other attributes by adding *clauses*. 
 
@@ -28,7 +28,7 @@ Some of the directives used in openMP is mentioned below:
 Data sharing between variables within a block executed in parallel can be done using options :  private, shared, default, firstprivate etc... The following table illustrates the visibility of each option. 
 
 ```
-| 			    | Parallel | Sections |  Task  |  Single | for
+| :-----------: | Parallel | Sections |  Task  |  Single | for
 | :-----------: |:--------:|:--------:|:------:|:-------:|:----:
 | private       |    [x]   |   [x]    |   [x]  |    [x]  | [x]
 | shared        |    [x]   |          |   [x]  |         | 
@@ -41,8 +41,8 @@ Data sharing between variables within a block executed in parallel can be done u
 
 An example snippet: 
 
-   ``` 
-   omp_set_num_threads(3); //execute 3 threads 
+``` 
+omp_set_num_threads(3); //execute 3 threads 
 #pragma omp parallel private(i)
     {
         printf("value of i is %d \n", i);
@@ -59,21 +59,22 @@ Variables declared inside the main and outside the code block is shared, whereas
 A **reduction** clause can be added to the parallel directive. This specifies that the final values of certain variables are combined using the specified operation  at the end of the parallel region.  
 
    ``` 
-  #pragma omp parallel default(shared) reduction(+:i) reduction(*:j) 
+      #pragma omp parallel default(shared) reduction(+:i) reduction(*:j) 
          {
             i = omp_get_thread_num()+1;
             j = omp_get_thread_num()+1;
             printf("Thread %i: i=%i,j=%i\n",omp_get_thread_num(),i,j,k);
          }
 
-         printf("After parallel region: i=%i,j=%i\n",i,j);
+      printf("After parallel region: i=%i,j=%i\n",i,j);
 ```
 
-**barrier** directive enables us to synchronize threads. It ensures that all threads are complete before executing the following block. 
+**barrier** directive enables us to synchronize threads. It ensures that all threads are complete before executing the following block. $$$$
 **critical** directive implements a mutaul exclution to the code block that follows. In effect, it serializes the parallel region by ensuring that only one thread runs the specified block. 
+$$$$
 **atomic** directive makes sure that no 2 threads update the memory at the same time. Read operations are fine, but no write. 
+$$$$
 **flush** is used to flush regester values to memory. 
 
 
 Example code for each can be found in  [folder](examples/)
-
