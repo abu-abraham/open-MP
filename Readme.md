@@ -13,9 +13,11 @@ Being a thread centric model, where each thread has a well defined task assignme
 
 OpenMP allows the use of directives which apply to the code block that follows. An example would be, 
 
->```#pragma omp parallel {
+```
+#pragma omp parallel {
   //code block to be executed in parallel
-}```
+}
+```
 
 We can restrict the number of threads, the visibility of variables used and various other attributes by adding *clauses*. 
 
@@ -69,12 +71,10 @@ A **reduction** clause can be added to the parallel directive. This specifies th
       printf("After parallel region: i=%i,j=%i\n",i,j);
 ```
 
-**barrier** directive enables us to synchronize threads. It ensures that all threads are complete before executing the following block. $$$$
+**barrier** directive enables us to synchronize threads. It ensures that all threads are complete before executing the following block. 
 **critical** directive implements a mutaul exclution to the code block that follows. In effect, it serializes the parallel region by ensuring that only one thread runs the specified block. 
-$$$$
 **atomic** directive makes sure that no 2 threads update the memory at the same time. Read operations are fine, but no write. 
-$$$$
 **flush** is used to flush regester values to memory. 
 
 
-Example code for each can be found in  [folder](examples/)
+> Example code for each can be found in  [folder](examples/)
