@@ -4,7 +4,7 @@ OpenMP is an API for writting shared memory parallel applications in C, C++ and 
 
 The usage of OpenMP enables application developers to easly tke advantage of multiple CPU's to boost performance of the sequential code. Compared to other parallel execution models such as PThread ( POSIX Threads ), OpenMP resembles serial code and is much easier to implement.
 
-> **Note:** To use OpenMP,  we have to include (import) omp.h
+> **Note:** To use OpenMP,  we have to include (import) omp.h and compile using -fopenmp
 
 Being a thread centric model, where each thread has a well defined task assignment, openMP allows nesting of threads. Threads in a team has ranks from 0 to N, with 0 being the master thread. In a parallel execution, master thread joins the team and contributes to the parallel computations. 
 
