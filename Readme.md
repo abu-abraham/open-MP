@@ -1,8 +1,8 @@
 # OpenMP
 
-OpenMP is an API for writting shared memory parallel applications in C, C++ and FORTRAN. This repository contains a slight introduction to openMP and some example codes. 
+OpenMP is an API for writing shared memory parallel applications in C, C++, and FORTRAN. This repository contains a slight introduction to OpenMP and some example codes. 
 
-The usage of OpenMP enables application developers to easly tke advantage of multiple CPU's to boost performance of the sequential code. Compared to other parallel execution models such as PThread ( POSIX Threads ), OpenMP resembles serial code and is much easier to implement.
+The usage of OpenMP enables application developers to easily take advantage of multiple CPU's to boost the performance of the sequential code. Compared to other parallel execution models such as PThread ( POSIX Threads ), OpenMP resembles serial code and is much easier to implement.
 
 > **Note:** To use OpenMP,  we have to include (import) omp.h and compile using -fopenmp
 
@@ -77,4 +77,4 @@ A **reduction** clause can be added to the parallel directive. This specifies th
 **flush** is used to flush regester values to memory. 
 
 
-> Example code for each can be found in  [folder](examples/)
+> Example code for each can be found in  [folder](examples/) .
