@@ -18,11 +18,11 @@ kernel_main_sse:
 
 kernel_main_opt_block:
 	module load papi;
-	gcc -c  kernel_main_omp_block.c -o cloth_code.o -pg -lm 
+	gcc -c  kernel_main_omp_block.c -o cloth_code.o -pg -lm -fopenmp
 	gcc kernel_main.c -o kernel_main_omp cloth_code.o -pg -lm -l papi  -fopenmp
 
 kernel_main_omp:
 	module load papi;
-	gcc -c  kernel_main_omp.c -o cloth_code.o -pg -lm 
+	gcc -c  kernel_main_omp.c -o cloth_code.o -pg -lm -fopenmp
 	gcc kernel_main.c -o kernel_main_omp cloth_code.o -pg -lm -l papi  -fopenmp
 
